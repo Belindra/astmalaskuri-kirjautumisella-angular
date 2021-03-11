@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #008B8B;">
+  <a class="navbar-brand" routerLink="/">Astmalääkelaskuri</a>
+
+  <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
+  </ul>
+  <div class="dropdown ml-auto" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+
+    <a class="dropdown-toggle text-light" dropdownToggle>Tervetuloa {{user.username | titlecase}}!</a>
+    <div class="dropdown-menu mt-3" *dropdownMenu>
+      <a class="dropdown-item" routerLink="/kayttaja/{{user.username}}">Kirjaa lääkkeet</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" (click)="logout()">Kirjaudu ulos</a>
+    </div>
+  </div>
+  <div class="ml-auto" id="navbarCollapse">
+
+      <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="d-flex"
+        (ngSubmit)="login()" autocomplete="off">
+        <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text"
+          placeholder="Käyttäjätunnus">
+        <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password"
+          placeholder="Salasana">
+        <button class="btn btn-outline-light" type="submit">Kirjaudu</button>
+      </form>
+
+  </div>
+</nav>

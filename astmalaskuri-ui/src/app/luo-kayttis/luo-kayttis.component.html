@@ -1,0 +1,36 @@
+
+
+<form #registerForm="ngForm" [formGroup]="registrationForm" (ngSubmit)="register()" autocomplete="off">
+  <h2 class="text-center">Luo käyttäjätunnus</h2>
+  <hr>
+  <div class="form-group">
+    <input type="text" class="form-control" name="username" formControlName="userName" [(ngModel)]="model.username" placeholder="Käyttäjätunnus">
+    <span class ="error-block" *ngIf="!userName.valid && userName.touched || userSubmitted">Annahan käyttäjätunnus</span>
+
+  </div>
+  <section class="form-group">
+    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Salasana" formControlName="password">
+    <span *ngIf="!password.valid && password.touched || userSubmitted" class="error-block">
+      <span *ngIf="password.errors['required']">Anna salasana</span>
+      <span *ngIf="password.errors.minlength">Tee salasanasta ainakin 8 merkkiä pitkä</span>
+    </span>
+    </section>
+
+
+  <section class="form-group">
+    <input type="password" class="form-control" name="password" [(ngModel)]="model.confirmPassword" placeholder="Vahvista salasana"  formControlName="confirmPassword">
+    <span *ngIf="!confirmPassword.valid && confirmPassword.touched || userSubmitted" class="error-block">
+      <span *ngIf="confirmPassword.errors['required']">Vahvista salasana</span>
+      </span>
+
+      <span *ngIf="registrationForm.hasError('notmatched') && confirmPassword.valid || userSubmitted" class="error-block">
+        Salasanat eivät täsmää
+      </span>
+    </section>
+
+
+  <section class="form-group text-center">
+    <button type="submit" class="btn btn-primary m-1">Tallenna</button>
+    <button type="button" class="btn btn-secondary m-1" (click)="cancel()">Peru</button>
+  </section>
+</form>

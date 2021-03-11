@@ -1,0 +1,113 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "assets/css/reset.css";
+
+html {
+  font-size: 120%;
+}
+
+body {
+  height: 100%;
+  background: linear-gradient(90deg, #DBECB5 20%, powderblue 80%);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#wrapper {
+  letter-spacing: 0.2em;
+
+}
+
+#reuna {
+    border: solid darkcyan 0.3em;
+    border-radius: 10px;
+    padding: 1em;
+    padding-bottom: 3em;
+    margin-top: 3em;
+    margin-left: 1em;
+    text-align: center;
+}
+
+.ngx-toastr {
+  font-size: 1rem;
+}
+
+.laaketieto {
+  width: 90%;
+}
+
+.info-teksti {
+
+  color: #0C658F;
+}
+
+.danger-teksti {
+
+  color: #b16b2b;
+}
+
+.danger2-teksti {
+
+  color: #ecb144;
+}
+
+.kortti {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+
+  background-clip: border-box;
+
+  border-radius: 0.25rem;
+}
+
+
+
+@media only screen and (max-width: 426px) {
+  .laakenaytto-flex{
+    flex-direction: column;
+  }
+
+  #reuna {
+    padding: 0.3em;
+    padding-bottom: 1.5em;
+    margin-top: 1em;
+    margin-left: 0em;
+  }
+
+  .otsikko {
+    font-size: 1.5em;
+  }
+
+  html {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .otsikko {
+    font-size: 2em;
+  }
+
+  html {
+    font-size: 100%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+ .laaketieto {
+  width: 500px;
+ }
+}
+
+
+
+
+
+
+
+
+
+

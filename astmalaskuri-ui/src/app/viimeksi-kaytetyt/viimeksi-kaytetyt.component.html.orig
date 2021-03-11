@@ -1,0 +1,42 @@
+<form class=" d-flex flex-sm-row" id="editForm" (ngSubmit)="paivitaLaakkeet()" #f="ngForm">
+  <main>
+    <p class="card alert-warning" style="margin:5px;">
+<<<<<<< HEAD
+      Flixotidea on viimeksi käytetty {{FVikaKaytto.date | date:'dd.M.YYYY'}} kello {{FVikaKaytto.date | date:'H:mm'}} {{FVikaKaytto.usedPortionNow}} annosta
+=======
+      Flixotidea on viimeksi käytetty {{FVikaKaytto.date | date:'dd.MM.YYYY'}} kello {{FVikaKaytto.date | date:'H:mm'}} {{FVikaKaytto.usedPortionNow}} annosta
+>>>>>>> 37fbb3269375ade1e2e88a24d639048f61f9a0e2
+      <button type="button" id="flix" (click)="flixotideLaake()" class="btn btn-warning text-white m-1">Käytä Flixotidea
+      </button>
+    </p>
+    <article class=" form-group">
+      <section *ngIf="flixotide && !ventoline">
+        <label for="amount">Flixotide annokset:</label>
+        <input required type="number" id="amount" class="form-control" name="amount" min=0 max=12 ngModel pattern="[1-9]+[0-9]*$" [(ngModel)]="uportion" >
+      </section>
+  </article>
+</main>
+
+<<<<<<< HEAD
+<main class="m-3  m-auto">
+  <p class="card  alert-info" style="margin:5px;">Ventolinea on viimeksi käytetty {{VVikaKaytto.date | date:'dd.M.YYYY'}} kello {{VVikaKaytto.date | date:'H:mm' }} {{VVikaKaytto.usedPortionNow}} annosta
+=======
+<main>
+  <p class="card  alert-info" style="margin:5px;">Ventolinea on viimeksi käytetty {{VVikaKaytto.date | date:'dd.MM.YYYY'}} kello {{VVikaKaytto.date | date:'H:mm'}} {{VVikaKaytto.usedPortionNow}}
+    annosta
+>>>>>>> 37fbb3269375ade1e2e88a24d639048f61f9a0e2
+    <button type="button" id="ven" (click)="ventolineLaake()" class="btn btn-info m-1">Käytä Ventolinea
+    </button>
+  </p>
+  <article class=" form-group">
+    <section *ngIf="ventoline && !flixotide">
+      <label for="amount">Ventoline annokset:</label>
+      <input required type="number" id="amount" class="form-control" name="amount" min=0 max=12 ngModel pattern="[1-9]+[0-9]*$" [(ngModel)]="uportion" >
+    </section>
+  </article>
+</main>
+</form>
+
+<section *ngIf="flixotide || ventoline">
+<button  [disabled]="!f.valid" form="editForm" class="btn btn-primary m-1" type="submit">Tallenna</button>
+</section>

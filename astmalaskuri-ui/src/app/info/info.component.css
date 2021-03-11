@@ -1,0 +1,25 @@
+ img {
+max-width: 100%;
+height: auto;
+}
+
+.aside {
+  width: 25%;
+  padding: 10px;
+  margin: 3rem;
+}
+
+@media screen and (max-width: 426px) {
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aside {
+    width: 100%;
+    margin:auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 30px;
+  }
+}

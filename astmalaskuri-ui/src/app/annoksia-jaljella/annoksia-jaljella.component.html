@@ -1,0 +1,39 @@
+
+
+<form class=" d-flex flex-sm-row" id="editForm" (ngSubmit)="paivitaLaakkeet()" #f="ngForm">
+  <main>
+    <p class="kortti flex-grow-1 danger2-teksti m-1 laaketieto mt-3 mb-3" *ngIf="medEvent1">
+      {{flixotide.medicineName}}a on jäljellä {{flixotide.totalPortion - medEvent1.usedPortionTotal}} annosta
+    </p>
+    <button type="button" id="flix" (click)="flixotideLaake()" class="btn btn-warning text-white m-auto">Käytä {{flixotide.medicineName}}a
+    </button>
+    <article class=" form-group">
+      <section *ngIf="flix && !ven">
+        <label for="amount">{{flixotide.medicineName}} annokset:</label>
+        <input required type="number" id="amount" class="form-control" name="amount" min=0 max=12 ngModel pattern="[1-9]+[0-9]*$" [(ngModel)]="uportion">
+      </section>
+  </article>
+  </main>
+
+  <main>
+    <p class="kortti flex-grow-1 text-info laaketieto m-1 mt-3 mb-3" *ngIf="medEvent2">{{ventoline.medicineName}}a on jäljellä {{ventoline.totalPortion - medEvent2.usedPortionTotal}} annosta
+
+
+    </p>
+    <button type="button" id="ven" (click)="ventolineLaake()" class="btn btn-info m-auto">Käytä {{ventoline.medicineName}}a
+    </button>
+
+
+    <article class=" form-group">
+      <section *ngIf="ven && !flix">
+        <label for="amount">{{ventoline.medicineName}} annokset:</label>
+        <input required type="number" id="amount" class="form-control" name="amount" min=0 max=12 ngModel pattern="[1-9]+[0-9]*$" [(ngModel)]="uportion">
+      </section>
+    </article>
+  </main>
+
+</form>
+<section *ngIf="ven  || flix ">
+
+<button [disabled]="!f.valid" form="editForm" class="btn btn-primary m-1" type="submit">Tallenna</button>
+</section>

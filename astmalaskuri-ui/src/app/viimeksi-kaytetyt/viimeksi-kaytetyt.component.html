@@ -1,0 +1,19 @@
+<main class=" d-flex flex-sm-row mt-3" *ngIf="FVikaKaytto || VVikaKaytto; else elseBlock">
+
+  <article >
+    <p class="kortti flex-grow-1 danger-teksti laaketieto" *ngIf="FVikaKaytto">
+      Flixotidea on viimeksi käytetty  {{FVikaKaytto.date | date: "dd.MM.YYYY"}} kello {{FVikaKaytto.date |
+      date:'H:mm':'GMT+4'}}   {{getVikaFlixKaytto()}}
+    </p>
+  </article>
+
+  <article>
+    <p class="kortti flex-grow-1  info-teksti laaketieto" *ngIf="VVikaKaytto">
+      Ventolinea on viimeksi käytetty {{VVikaKaytto.date | date: "dd.MM.YYYY"}} kello {{VVikaKaytto.date |
+      date:'H:mm':'GMT+4'}} {{getVikaVenKaytto()}}
+    </p>
+  </article>
+
+</main>
+<ng-template #elseBlock>
+  Et ole vielä käyttänyt kumpaakaan lääkettä</ng-template>

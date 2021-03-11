@@ -1,0 +1,18 @@
+
+<div class="container mt-5">
+  <div *ngIf="!registerMode" style="text-align: center;">
+    <h1>Rekisteröi käyttäjätunnus</h1>
+    <div class="text-center">
+      <button class="btn btn-primary m-1" (click)="registerToggle()">Rekisteröidy</button>
+      <button class="btn btn-info m-1" (click)="info()">Lisätietoa</button>
+    </div>
+  </div>
+
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-luo-kayttis (cancelRegister)="cancelRegisterMode($event)"></app-luo-kayttis>
+      </div>
+    </div>
+    </div>
+  </div>

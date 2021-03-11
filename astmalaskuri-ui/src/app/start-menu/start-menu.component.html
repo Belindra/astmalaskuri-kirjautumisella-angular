@@ -1,0 +1,26 @@
+<main id="wrapper" class="container" *ngIf="user">
+
+  <figure id="reuna">
+    <h1 class="otsikko">Astmalääkelaskuri</h1>
+
+    <section>
+      <p class="mt-3">Lääkkeiden tiedot</p>
+      <app-viimeksi-kaytetyt [user]="kayttaja"></app-viimeksi-kaytetyt>
+    </section>
+
+
+
+    <section>
+      <app-annoksia-jaljella [user]="kayttaja"></app-annoksia-jaljella>
+    </section>
+
+    <article>
+      <p class="mt-3"><button class="btn" (click)="resetoiLaake()">Nollaa käytetyt lääkeannokset ja aloita uusi
+          lääkepakkaus</button></p>
+      <section *ngIf="naytaLaake">
+        <app-resetoi-laakkeet [user]="kayttaja"></app-resetoi-laakkeet>
+      </section>
+    </article>
+
+  </figure>
+</main>
