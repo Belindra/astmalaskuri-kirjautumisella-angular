@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LuoKayttisComponent } from '../luo-kayttis/luo-kayttis.component';
 
 @Component({
   selector: 'app-aloitussivu',

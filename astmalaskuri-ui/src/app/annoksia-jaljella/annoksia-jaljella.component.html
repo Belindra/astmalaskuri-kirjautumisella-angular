@@ -1,5 +1,3 @@
-
-
 <form class=" d-flex flex-sm-row" id="editForm" (ngSubmit)="paivitaLaakkeet()" #f="ngForm">
   <main>
     <p class="kortti flex-grow-1 danger2-teksti m-1 laaketieto mt-3 mb-3" *ngIf="medEvent1">
@@ -17,12 +15,9 @@
 
   <main>
     <p class="kortti flex-grow-1 text-info laaketieto m-1 mt-3 mb-3" *ngIf="medEvent2">{{ventoline.medicineName}}a on jäljellä {{ventoline.totalPortion - medEvent2.usedPortionTotal}} annosta
-
-
     </p>
     <button type="button" id="ven" (click)="ventolineLaake()" class="btn btn-info m-auto">Käytä {{ventoline.medicineName}}a
     </button>
-
 
     <article class=" form-group">
       <section *ngIf="ven && !flix">

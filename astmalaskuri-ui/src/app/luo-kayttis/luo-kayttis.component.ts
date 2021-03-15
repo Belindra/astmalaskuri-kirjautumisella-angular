@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder  } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, ValidatorFn, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
 export class LuoKayttisComponent implements OnInit {
   registrationForm: FormGroup;
   userSubmitted: boolean;
-  model: any = {};
   @Output() cancelRegister = new EventEmitter();
 
   constructor(
@@ -27,7 +26,7 @@ export class LuoKayttisComponent implements OnInit {
 
   register() {
     this.userSubmitted = true;
-    this.accountService.register(this.model).subscribe(() => {
+    this.accountService.register(this.registrationForm.value).subscribe(() => {
       this.cancel();
     }, error => {
       console.log(error);
@@ -43,18 +42,17 @@ export class LuoKayttisComponent implements OnInit {
 
    createRegistrationForm() {
      this.registrationForm = this.fb.group({
-       userName: [null, Validators.required],
-       password: [null, [Validators.required, Validators.minLength(8)] ],
-       confirmPassword: [null, [Validators.required]]
-     }, {validators: this.passwordMatchingValidator})
+       userName: ['', Validators.required],
+       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
+       confirmPassword: ['', [Validators.required, this.matchValues('password')]]
+     })
    }
 
-   passwordMatchingValidator(fg: FormGroup): Validators {
-     return fg.get('password').value===fg.get('confirmPassword').value ? null :
-     { notmatched: true //notmatched on avain ja true on sen arvo. validators palauttaa avaimen ja arvon
-
-     }
-   }
+  matchValues(matchTo: string): ValidatorFn {
+    return (control: AbstractControl) => {
+      return control?.value === control?.parent?.controls[matchTo].value ? null : { isMatching: true }
+    }
+  }
 
   //getterit formcontrolleille, jotta ne saa vähemmällä koodilla käyttöön templatessa
    get userName() {

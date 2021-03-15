@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../_models/IUser';
 
@@ -11,6 +9,7 @@ import { IUser } from '../_models/IUser';
 export class UserService {
   baseUrl = environment.apiUrl + "/users";
   users: IUser[];
+  userExists: boolean;
 
 constructor(private http: HttpClient) { }
 
@@ -19,3 +18,12 @@ constructor(private http: HttpClient) { }
  }
 
 }
+
+
+
+
+
+
+
+
+
