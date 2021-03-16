@@ -42,7 +42,7 @@ export class LuoKayttisComponent implements OnInit {
 
    createRegistrationForm() {
      this.registrationForm = this.fb.group({
-       userName: ['', Validators.required],
+       userName: ['', [Validators.required, Validators.maxLength(20)]],
        password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
        confirmPassword: ['', [Validators.required, this.matchValues('password')]]
      })

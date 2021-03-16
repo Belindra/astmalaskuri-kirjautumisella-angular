@@ -5,7 +5,8 @@
   <section class="form-group">
     <input [class.is-invalid]='registrationForm.get("userName").errors && registrationForm.get("userName").touched'
     type="text" class="form-control" formControlName="userName" placeholder="Käyttäjätunnus">
-    <div class="invalid-feedback">Anna käyttäjätunnus</div>
+    <div class="invalid-feedback" *ngIf="registrationForm.get('userName').hasError('required')">Anna käyttäjätunnus</div>
+    <div class="invalid-feedback" *ngIf="registrationForm.get('userName').hasError('maxlength')">Käyttäjätunnus voi olla korkeintaan 20 merkkiä pitkä</div>
   </section>
 
   <section class="form-group">
