@@ -5,7 +5,6 @@ Ohjelmassa käyttäjä pystyy syöttämään jomman kumman tai molempien lääkk
 kummassakin lääkkeessä. Ohjelma ilmoittaa, millon viimeksi annoksia on kirjattu ja toimii suomenkielellä.
 
 Alkuperäinen ohjelma on tehty C# käyttäen ensin CSV-tiedostoa annosten kirjaamiseen ja seuraavassa versiossa paikallista tietokantaa ja Entity Frameworkia 
-(molempien repositoriot löytyvät profiilistani). Ohjelmasta tehtiin ensimmäinen netti appi versio, jossa käyttäjiä pystyi olemaan vain yksi (repositorio löytyy profiilistani). 
-Tähän versioon lisätty käyttäjien rekisteröiminen ja kirjautuminen.
+(molempien repositoriot löytyvät profiilistani). Ohjelma on tehty yhteistyössä Anu Virtasen (@anuvirtane) kanssa. Ohjelmasta tehtiin ensimmäinen netti appi versio, jossa käyttäjiä pystyi olemaan vain yksi (repositorio löytyy profiilistani). Tähän versioon lisätty käyttäjien rekisteröiminen ja kirjautuminen.
 
 Hostattu https://astmalaakelaskuri.web.app/
